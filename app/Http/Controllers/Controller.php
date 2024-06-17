@@ -1,22 +1,32 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
 
-
+use App\Models\CarouselImage;
+use App\Models\News;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
-use App\Models\CarouselImage;
+
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, ValidatesRequests;
-
-
     public function showWelcome()
-{
-    $carouselImages = CarouselImage::all();
-    return view('welcome', compact('carouselImages'));
+    {
+        $carouselImages = CarouselImage::all();
+        $news = News::all();
+        return view('welcome', compact('carouselImages', 'news'));
+    }
+
+    public function showNews(News $news)
+    {
+        return view('news.show', compact('news'));
+    }
 }
-}
+
+
+
 

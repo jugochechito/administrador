@@ -334,6 +334,11 @@ return [
             'icon' => 'far fa-fw fa-file',
         ],
         [
+            'text' => 'Noticias',
+            'url' => 'admin/news',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
             'text' => 'change_password',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

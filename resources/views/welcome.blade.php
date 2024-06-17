@@ -77,6 +77,26 @@
         <p class="text-center">Content for Section 2</p>
     </div>
 
+    <!-- Noticias -->
+    <div class="container mt-5">
+        <h2 class="text-center">Noticias</h2>
+        <div class="row">
+            @foreach ($news as $newsItem)
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ asset('storage/' . $newsItem->image_path) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $newsItem->title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $newsItem->subtitle }}</h6>
+                            <p class="card-text">{{ $newsItem->description }}</p>
+                            <a href="{{ route('news.show', $newsItem->id) }}" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
