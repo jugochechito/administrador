@@ -314,7 +314,7 @@ return [
             'text' => 'blog',
             'url' => 'admin/blog',
             'can' => 'manage-blog',
-        ],
+        ], 
         [
             'text' => 'pages',
             'url' => 'admin/pages',
@@ -327,6 +327,11 @@ return [
             'text' => 'profile',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Carousel',
+            'url' => 'admin/carousel',
+            'icon' => 'far fa-fw fa-file',
         ],
         [
             'text' => 'change_password',
