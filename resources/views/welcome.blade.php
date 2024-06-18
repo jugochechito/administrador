@@ -5,137 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.js"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> <!-- Enlace al archivo CSS externo -->
 
-    <style>
-        /* Estilos para el fondo del cuerpo */
-        body {
-            background: linear-gradient(to bottom right, #7721bd, #e0764c);
-            padding-top: 0px; /* Para ajustar el contenido debajo de la barra de navegación */
-        }
-
-        /* Estilos para el carrusel */
-        .carousel-item img {
-            height: 100vh;
-            height: 100vh; /* Ajustar altura de las imágenes del carrusel */
-        }
-
-        /* Estilos para las secciones */
-        .section {
-            background: linear-gradient(to bottom right, #ffffff, #9cb8c4);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-
-        /* Estilos para las tarjetas */
-        .card {
-            padding: 20px;
-            width: 330px;
-            min-height: 370px;
-            border-radius: 20px;
-            background: #e8e8e8;
-            box-shadow: 5px 5px 6px #dadada, -5px -5px 6px #f6f6f6;
-            transition: transform 0.4s;
-            margin-bottom: 20px; /* Espacio inferior entre las tarjetas */
-            overflow: hidden; /* Ocultar el contenido que excede el tamaño de la tarjeta */
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2e54a7;
-            margin: 15px 0 0 10px;
-        }
-
-        .card-image {
-            min-height: 170px;
-            background-color: #c9c9c9;
-            border-radius: 15px;
-            box-shadow: inset 8px 8px 10px #c3c3c3, inset -8px -8px 10px #cfcfcf;
-            overflow: hidden; /* Ocultar el contenido que excede el tamaño de la imagen */
-        }
-
-        .card-image img {
-            width: 100%; /* Ajustar la imagen al 100% del contenedor */
-            height: auto; /* Mantener la proporción de la imagen */
-            display: block; /* Asegurar que la imagen se muestre correctamente */
-        }
-
-        .card-body {
-            margin: 13px 0 0 10px;
-            color: #1f1f1f;
-            font-size: 15px;
-            overflow: hidden; /* Ocultar el contenido que excede el tamaño de la tarjeta */
-        }
-
-        .footer {
-            float: right;
-            margin: 28px 0 0 18px;
-            font-size: 13px;
-            color: #636363;
-        }
-
-        .by-name {
-            font-weight: 700;
-        }
-
-        /* Estilos para el botón de "Ver más" */
-        .btn-primary {
-            background-color: #2e54a7;
-            border-color: #2e54a7;
-            color: #ffffff;
-            transition: background-color 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: #1c3d74;
-            border-color: #1c3d74;
-        }
-
-        /* Estilos para la barra de navegación */
-        .navbar {
-            background-color: #f8f9fa; /* Color gris claro para la barra de navegación */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .nav-link {
-            color: #2c3e50;
-        }
-
-        .nav-link:hover {
-            color: #3ca89a; /* Cambiar color al pasar el mouse */
-        }
-
-        /* Estilos para los enlaces de los documentos */
-        .list-group-item a {
-            color: #2c3e50;
-            text-decoration: none;
-        }
-
-        .list-group-item a:hover {
-            color: #3ca89a; /* Cambiar color al pasar el mouse */
-        }
-    </style>
+    <!-- Estilos en línea específicos -->
+    
 </head>
 <body>
     <!-- Barra de Menú -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="{{ url('/') }}">My Website</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -156,7 +34,7 @@
     </nav>
 
     <!-- Carrusel -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
             @foreach ($carouselImages as $index => $image)
                 <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
@@ -195,7 +73,7 @@
                                 <p class="card-title">{{ $newsItem->title }}</p>
                                 <p class="card-text">{{ $newsItem->subtitle }}</p>
                             </div>
-                            <div class="footer">
+                            <div class="footer-card">
                                 <p>Escrito por <span class="by-name">{{ $newsItem->author }}</span> el <span class="date">{{ $newsItem->created_at->format('d/m/Y') }}</span></p>
                                 <a href="{{ route('news.show', $newsItem->id) }}" class="btn btn-primary btn-sm">Ver más</a>
                             </div>
@@ -250,11 +128,25 @@
             </div>
         </section>
     </div>
+    <footer class="main-footer">
+        <div class="float-left d-none d-sm-inline">
+          <b>Version</b> 3.0.0
+        </div>
+        <strong>Copyright &copy; 2024 <a href="#">Mi sitio web</a>.</strong> All rights reserved.
+        <div class="float-center d-none d-sm-inline">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </footer>
+      
+      
+    
     
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
