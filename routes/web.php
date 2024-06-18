@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CarouselImageController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\DocumentController;
 
 // Rutas públicas accesibles para cualquier usuario
 Route::get('/', [Controller::class, 'showWelcome'])->name('welcome');
@@ -28,12 +29,11 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/carousel/{carouselImage}', [CarouselImageController::class, 'update'])->name('carousel.update');
         Route::delete('/carousel/{carouselImage}', [CarouselImageController::class, 'destroy'])->name('carousel.destroy');
 
+        
+        Route::resource('documents', DocumentController::class);
+
         Route::resource('news', NewsController::class)->except(['show']);
     });
-
-    
-    
-    
 });
 
 

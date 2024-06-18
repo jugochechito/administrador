@@ -334,6 +334,11 @@ return [
             'icon' => 'far fa-fw fa-file',
         ],
         [
+            'text' => 'Documentos',
+            'url' => 'admin/documents',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
             'text' => 'Noticias',
             'url' => 'admin/news',
             'icon' => 'far fa-fw fa-file',

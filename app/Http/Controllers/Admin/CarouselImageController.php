@@ -22,7 +22,7 @@ class CarouselImageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
         $imagePath = $request->file('image')->store('carousel', 'public');
